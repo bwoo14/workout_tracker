@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Measurements</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <form method="POST" class="mt-4">
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight:</label>
+            <input type="number" class="form-control" id="weight" name="weight" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="bicep_measure">Bicep Measurement:</label>
+            <input type="number" class="form-control" id="bicep_measure" name="bicep_measure" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="thigh_measure">Thigh Measurement:</label>
+            <input type="number" class="form-control" id="thigh_measure" name="thigh_measure" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="waist_measure">Waist Measurement:</label>
+            <input type="number" class="form-control" id="waist_measure" name="waist_measure" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="body_fat">Body Fat:</label>
+            <input type="number" class="form-control" id="body_fat" name="body_fat" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}

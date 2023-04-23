@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="display: flex; justify-content: space-between;">
+    <h1>All Exercises</h1>
+    <a href="{{ url_for('add_exercise') }}" class="btn btn-primary">Add Exercise</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Exercise Name</th>
+            <th>Muscle Groups</th>
+            <th>Type of Exercise</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for exercise in exercises %}
+        <tr>
+            <td>{{ exercise[1] }}</td>
+            <td>{{ exercise[2] }}</td>
+            <td>{{ exercise[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

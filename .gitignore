@@ -1,0 +1,4 @@
+__pycache__/
+venv/
+mydatabase.db
+useful_stuff.sql

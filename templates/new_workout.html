@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block head %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workout Form</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='new_workout.css') }}">
+<script>
+    const exercisesList = {{ exercises|tojson }};
+</script>
+<script src="{{ url_for('static', filename='script.js') }}" defer></script>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <form method="POST" class="mt-4">
+        <div class="form-group">
+            <label for="workout-date">Exercise Date:</label>
+            <input type="date" class="form-control" id="workout-date" name="workout_date" required>
+        </div>
+        <div class="form-group">
+            <label for="duration">Duration (in minutes):</label>
+            <input type="number" class="form-control" id="duration" name="duration" required>
+        </div>
+        <div class="form-group">
+            <label for="protein-taken">Protein Taken (in g):</label>
+            <input type="number" class="form-control" id="protein-taken" name="protein_taken" required>
+        </div>
+        <div class="form-group">
+            <label for="creatine-taken">Creatine Taken:</label>
+            <input type="number" class="form-control" id="creatine-taken" name="creatine_taken">
+        </div>
+
+        <h3>Exercises:</h3>
+        <div id="exercises">
+            <div class="form-row exercise-row">
+                <div class="form-group col-md-4">
+                    <label>Exercise Name</label>
+                    <select class="form-control" name="exercise_name[]" required>
+                        {% for exercise in exercises %}
+                        <option value="{{ exercise }}">{{ exercise }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Reps</label>
+                    <input type="number" class="form-control" name="reps[]" placeholder="Reps" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Weight</label>
+                    <input type="number" class="form-control" name="weight[]" placeholder="Weight" required>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="add-exercise">Add Exercise</button><br><br>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}

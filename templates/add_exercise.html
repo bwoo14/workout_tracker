@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block head %}
+
+
+{% endblock %}
+{% block content %}
+<div class="container">
+<form class="form-horizontal" method="post" action="/add_exercise" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exercise-name" class="col-sm-2 control-label">Exercise Name:</label>
+      <div class="col-sm-10">
+        <input type="text" id="exercise-name" name="exercise_name" class="form-control" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Muscle Groups:</label>
+        <div class="col-sm-10">
+          <label class="checkbox-inline">
+            <input type="checkbox" id="chest" name="muscle_groups[]" value="chest"> Chest
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="back" name="muscle_groups[]" value="back"> Back
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="legs" name="muscle_groups[]" value="legs"> Legs
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="arms" name="muscle_groups[]" value="arms"> Arms
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="shoulders" name="muscle_groups[]" value="shoulders"> Shoulders
+          </label>
+          <label class="checkbox-inline">
+            <input type="checkbox" id="abs" name="muscle_groups[]" value="abs"> Abs
+          </label>
+        </div>
+      </div>
+  
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Exercise Type:</label>
+      <div class="col-sm-10">
+        <label class="radio-inline">
+          <input type="radio" id="cardio" name="exercise_type" value="cardio" required> Cardio
+        </label>
+        <label class="radio-inline">
+          <input type="radio" id="bodyweight" name="exercise_type" value="bodyweight" required> Bodyweight
+        </label>
+        <label class="radio-inline">
+          <input type="radio" id="freeweight" name="exercise_type" value="freeweight" required> Freeweight
+        </label>
+        <label class="radio-inline">
+          <input type="radio" id="machine" name="exercise_type" value="machine" required> Machine
+        </label>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="exercise-image" class="col-sm-2 control-label">Exercise Image:</label>
+      <div class="col-sm-10">
+        <input type="file" id="exercise_image" name="exercise_image" accept="image/*" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Add Exercise</button>
+      </div>
+    </div>
+  </form>
+  </div>
+  
+{% endblock %}
